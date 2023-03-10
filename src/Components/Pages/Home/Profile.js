@@ -14,13 +14,13 @@ const Profile = () => {
             <span className="font-bold pr-4">Name :</span> Joff Chop
           </h1>
           <h1 className="text-2xl">
-            <span className="font-bold pr-4">Phone :</span>+880172579855
+            <span className="font-bold pr-4">Phone :</span>+8801725798554
           </h1>
           <h1 className="text-2xl">
             <span className="font-bold pr-6">Email :</span>abc@def.com
           </h1>
           <h1 className="text-2xl">
-            <span className="font-bold pr-9">Nid :</span> 325781549
+            <span className="font-bold pr-9">Nid :</span> 5258745
           </h1>
           <h1 className="text-2xl">
             {/* <span className="font-bold ">Location : </span>Dhaka */}
