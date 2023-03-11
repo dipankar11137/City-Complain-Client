@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import auth from "../../../firebase.init";
 
 const Complain = () => {
+  const user = useAuthState(auth);
+  const email = user[0]?.email;
   const [division, setDivision] = useState("");
   const [district, setDistrict] = useState("");
   const [ministry, setMinistry] = useState("");
+  const [profiles, setProfile] = useState([]);
   const imageHostKey = "c70a5fc10619997bd7315f2bf28d0f3e";
+  const profile = profiles[0];
   //   console.log(option);
   const {
     register,
@@ -14,6 +20,12 @@ const Complain = () => {
     handleSubmit,
     reset,
   } = useForm();
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/user/${email}`)
+      .then((res) => res.json())
+      .then((data) => setProfile(data));
+  }, [email]);
   const divisionNames = [
     "Barishal",
     "Chattogram",
@@ -157,6 +169,7 @@ const Complain = () => {
             division: division,
             district: district,
             ministry: ministry,
+            profile: profile,
           };
 
           // console.log(updateComplain);
@@ -305,7 +318,7 @@ const Complain = () => {
               <input
                 type="file"
                 placeholder="Your Location"
-                className="input input-bordered bg-white lg:w-96  sm:w-full max-w-xs hover:shadow-xl shadow-inner"
+                className="input input-bordered bg-white lg:w-96 pt-2 sm:w-full max-w-xs hover:shadow-xl shadow-inner"
                 {...register("image", {
                   required: {
                     value: true,
@@ -314,15 +327,15 @@ const Complain = () => {
                 })}
               />
               <label className="label">
-                {errors.location?.type === "required" && (
+                {errors.image?.type === "required" && (
                   <span className="label-text-alt text-red-500">
-                    {errors?.location?.message}
+                    {errors?.image?.message}
                   </span>
                 )}
               </label>
               {/* submit */}
 
-              {district || division & ministry ? (
+              {ministry ? (
                 <input
                   className="btn mt-5 w-full text-white"
                   type="submit"

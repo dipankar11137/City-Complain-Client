@@ -43,23 +43,12 @@ const Login = () => {
     );
   }
   const onSubmit = async (data) => {
-    const email = data.email;
     await signInWithEmailAndPassword(data.email, data.password);
     toast.success("Successfully Login");
-    // const { accessToken } = await axios.post(
-    //   "https://boxberry.onrender.com/login",
-    //   {
-    //     email,
-    //   }
-    // );
-    // console.log(accessToken);
   };
 
   return (
-    <div className="flex justify-center h-screen bg-slate-700">
-      <div className="w-4/12 pt-40">
-        <img className="w-11/12 rounded-xl" src={login} alt="" />
-      </div>
+    <div className="flex justify-center h-screen bg-slate-300">
       <div className="flex justify-center items-center ">
         <div className="card w-96 shadow-2xl bg-violet-50">
           <div className="card-body">
@@ -139,19 +128,12 @@ const Login = () => {
             </form>
             <p>
               <small>
-                New to BoxBerry Motor?{" "}
+                New to City Complain?{" "}
                 <Link to="/createAccount" className="text-orange-600 font-bold">
                   Create New Account
                 </Link>
               </small>
             </p>
-            <div className="divider">OR</div>
-            <button
-              onClick={() => signInWithGoogle()}
-              className="btn btn-outline font-black"
-            >
-              Continue With Google
-            </button>
           </div>
         </div>
       </div>

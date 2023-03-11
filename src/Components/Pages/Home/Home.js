@@ -20,48 +20,33 @@ const Home = () => {
           <div className="drawer-side ">
             <label for="dashboard-sidebar" className="drawer-overlay "></label>
             <ul className="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">
-              <li>
-                <Link to="/" className="font-bold hover:text-orange-600">
+              <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
+                <Link to="/" className="font-bold ">
                   Profile
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/complain"
-                  className="font-bold hover:text-orange-600"
-                >
+              <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
+                <Link to="/complain" className="font-bold ">
                   Complain
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/showComplains"
-                  className="font-bold hover:text-orange-600"
-                >
+              <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
+                <Link to="/showComplains" className="font-bold ">
                   Show Complain
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/complain"
-                  className="font-bold hover:text-orange-600"
-                >
+              <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
+                <Link to="/complain" className="font-bold ">
                   Edit Profile
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/complain"
-                  className="font-bold hover:text-orange-600"
-                >
-                  Manage Item
+              <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
+                <Link to="/complain" className="font-bold ">
+                  Manage Complain
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/complain"
-                  className="font-bold hover:text-orange-600"
-                >
+              <li className="hover:bg-red-900 rounded-lg hover:text-white hover:text-xl">
+                <Link to="/complain" className="font-bold ">
                   Hot Dails
                 </Link>
               </li>
