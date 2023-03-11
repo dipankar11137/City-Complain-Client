@@ -3,48 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
-import { FaHome } from "react-icons/fa";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
   const email = user?.email;
-  const navigate = useNavigate();
-  const [booking, setBooking] = useState([]);
   const logout = () => {
     signOut(auth);
   };
 
-  useEffect(() => {
-    fetch(`https://boxberry.onrender.com/carBooking/${email}`)
-      .then((res) => res.json())
-      .then((data) => setBooking(data));
-  }, [booking]);
-
-  const handleBook = () => {
-    navigate("/myOrders");
-  };
-
-  const menuItems = (
-    <>
-      <li className="font-bold hover:text-orange-400">
-        <Link to="/blogs">Blogs</Link>
-      </li>
-      {user && (
-        <li className="font-bold hover:text-orange-400">
-          <Link to="/myOrders">My Orders</Link>
-        </li>
-      )}
-      <li className="font-bold hover:text-orange-400">
-        <Link to="/showAllReview">Reviews</Link>
-      </li>
-
-      {user && (
-        <li className="font-bold hover:text-orange-400">
-          <Link to="/dashboard">Dashboard</Link>
-        </li>
-      )}
-    </>
-  );
   return (
     <div className="  navbar bg-green-900  text-white ">
       <div className="navbar-start ">

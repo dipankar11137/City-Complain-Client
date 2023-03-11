@@ -193,15 +193,15 @@ const Complain = () => {
   return (
     <div className="flex justify-center">
       <div>
-        <h1 className="text-3xl uppercase text-center font-bold mt-3">
-          Complain
-        </h1>
         <div className="shadow-lg mt-5 p-4 bg-white rounded-lg mb-20">
           <form
             className=" flex justify-center gap-4"
             onSubmit={handleSubmit(onSubmit)}
           >
             <div>
+              <h1 className="text-3xl  text-center font-bold mb-3">
+                Write Complain
+              </h1>
               {/* Location Division */}
               <select
                 onChange={(e) => setDivision(e.target.value)}
