@@ -11,7 +11,7 @@ const Complain = () => {
   const [district, setDistrict] = useState("");
   const [ministry, setMinistry] = useState("");
   const [profiles, setProfile] = useState([]);
-  const imageHostKey = "c70a5fc10619997bd7315f2bf28d0f3e";
+  const imageHostKey = "e32ceaff91d55c4928a4f78306c254aa";
   const profile = profiles[0];
   //   console.log(option);
   const {
@@ -193,8 +193,10 @@ const Complain = () => {
   return (
     <div className="flex justify-center">
       <div>
-        <h1 className="text-5xl text-center font-bold mt-3">Complain</h1>
-        <div className="shadow-lg mt-10 p-4 bg-white rounded-lg mb-20">
+        <h1 className="text-3xl uppercase text-center font-bold mt-3">
+          Complain
+        </h1>
+        <div className="shadow-lg mt-5 p-4 bg-white rounded-lg mb-20">
           <form
             className=" flex justify-center gap-4"
             onSubmit={handleSubmit(onSubmit)}

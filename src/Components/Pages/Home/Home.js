@@ -41,12 +41,12 @@ const Home = () => {
                 </Link>
               </li>
               <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
-                <Link to="/complain" className="font-bold ">
+                <Link to="/manageComplains" className="font-bold ">
                   Manage Complain
                 </Link>
               </li>
-              <li className="hover:bg-red-900 rounded-lg hover:text-white hover:text-xl">
-                <Link to="/complain" className="font-bold ">
+              <li className="hover:bg-red-700 rounded-lg hover:text-white hover:text-xl">
+                <Link to="/hotDail" className="font-bold ">
                   Hot Dails
                 </Link>
               </li>
