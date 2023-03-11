@@ -9,6 +9,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import NotFound from "./Components/Share/NotFound";
 import RequireAuth from "./Components/Login/RequireAUth";
+import Profile from "./Components/Pages/Home/Profile";
+import Complain from "./Components/Pages/Home/Complain";
+import ShowComplains from "./Components/Pages/Home/ShowComplains";
 
 function App() {
   return (
@@ -16,7 +19,7 @@ function App() {
       {/* <CreateAccount /> */}
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        {/* <Route path="/" element={<Home />}></Route> */}
         <Route path="/createAccount" element={<CreateAccount />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
@@ -29,9 +32,10 @@ function App() {
             </RequireAuth>
           }
         >
-          {/* <Route index element={<MyProfile />} />
+          <Route index element={<Profile />} />
           <Route path="complain" element={<Complain />} />
-          <Route path="complains" element={<Complains />} /> */}
+          <Route path="showComplains" element={<ShowComplains />} />
+          {/* <Route path="complains" element={<Complains />} />  */}
         </Route>
       </Routes>
       <Footer />

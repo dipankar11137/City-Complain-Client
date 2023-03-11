@@ -35,7 +35,7 @@ const Home = () => {
               </li>
               <li>
                 <Link
-                  to="/complains"
+                  to="/showComplains"
                   className="font-bold hover:text-orange-600"
                 >
                   Show Complain
@@ -55,6 +55,14 @@ const Home = () => {
                   className="font-bold hover:text-orange-600"
                 >
                   Manage Item
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/complain"
+                  className="font-bold hover:text-orange-600"
+                >
+                  Hot Dails
                 </Link>
               </li>
             </ul>
