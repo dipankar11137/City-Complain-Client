@@ -7,7 +7,6 @@ const ShowComplains = () => {
   console.log(complains);
 
   useEffect(() => {
-    // fetch(`http://localhost:5000/complain/Dhaka`)
     fetch(`http://localhost:5000/complain/${division}`)
       .then((res) => res.json())
       .then((data) => setComplains(data));
@@ -29,12 +28,15 @@ const ShowComplains = () => {
         <h1 className="text-xl font-semibold pl-3">
           Select Location : {division}
         </h1>
+        <h1 className="text-xl font-semibold pl-3">
+          Complain Number : {complains?.length}
+        </h1>
         <select
           onChange={(e) => setDivision(e.target.value)}
           className="select select-info w-full max-w-xs hover:shadow-xl mt-2"
         >
           <option disabled selected>
-            select Your Division
+            Dhaka
           </option>
 
           {divisionNames.map((data) => (
