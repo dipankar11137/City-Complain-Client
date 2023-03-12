@@ -269,6 +269,10 @@ const CreateAccount = () => {
                       value: 6,
                       message: "Must be 6 characters or longer",
                     },
+                    pattern: {
+                      value: /^\d{6}$/,
+                      message: "Enter six digit Or gater than six",
+                    },
                   })}
                 />
                 <label className="label">

@@ -1,7 +1,7 @@
 import React from "react";
 
 const ShowComplain = ({ complain }) => {
-  console.log(complain);
+  // console.log(complain);
   return (
     <div>
       <div

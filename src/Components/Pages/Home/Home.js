@@ -1,7 +1,11 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, Outlet } from "react-router-dom";
+import auth from "../../../firebase.init";
 
 const Home = () => {
+  const user = useAuthState(auth);
+  const email = user[0]?.email;
   return (
     <div className="bg-slate-100">
       <div>
@@ -30,21 +34,32 @@ const Home = () => {
                   Complain
                 </Link>
               </li>
-              <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
-                <Link to="/showComplains" className="font-bold ">
-                  Show Complain
-                </Link>
-              </li>
+              {email === "abc@def.com" ? (
+                <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
+                  <Link to="/showComplains" className="font-bold ">
+                    Show Complain
+                  </Link>
+                </li>
+              ) : (
+                <></>
+              )}
+
               <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
                 <Link to="/myProfile" className="font-bold ">
                   Edit Profile
                 </Link>
               </li>
-              <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
-                <Link to="/manageComplains" className="font-bold ">
-                  Manage Complain
-                </Link>
-              </li>
+
+              {email === "abc@def.com" ? (
+                <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
+                  <Link to="/manageComplains" className="font-bold ">
+                    Manage Complain
+                  </Link>
+                </li>
+              ) : (
+                <></>
+              )}
+
               <li className="hover:bg-red-700 rounded-lg hover:text-white hover:text-xl">
                 <Link to="/hotDail" className="font-bold ">
                   Hot Dails
