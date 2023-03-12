@@ -36,7 +36,7 @@ const Home = () => {
                 </Link>
               </li>
               <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
-                <Link to="/complain" className="font-bold ">
+                <Link to="/myProfile" className="font-bold ">
                   Edit Profile
                 </Link>
               </li>

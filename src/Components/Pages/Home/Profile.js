@@ -7,7 +7,7 @@ const Profile = () => {
   const email = user[0]?.email;
   const [profiles, setProfile] = useState([]);
   const profile = profiles[0];
-  console.log(profile);
+  // console.log(profile);
 
   useEffect(() => {
     fetch(`http://localhost:5000/user/${email}`)
@@ -16,10 +16,10 @@ const Profile = () => {
   }, [email]);
   return (
     <div className="flex justify-center">
-      <div className="mt-5 shadow-xl p-4 rounded-2xl">
+      <div className="mt-5 shadow-xl p-4 rounded-2xl ">
         <img
           style={{ height: "300px", width: "300px" }}
-          className="w-56 h-72 rounded-full border-4 border-blue-300 ml-6"
+          className="w-56 h-72 rounded-full border-4 border-blue-300 ml-2 "
           src={profile?.image}
           alt=""
         />

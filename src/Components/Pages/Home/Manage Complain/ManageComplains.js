@@ -26,7 +26,6 @@ const ManageComplains = () => {
   };
   return (
     <div className="mx-5">
-      <h1>Manage {complains.length}</h1>
       <div>
         <div className="overflow-x-auto">
           <table className="table w-full">

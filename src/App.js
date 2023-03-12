@@ -14,6 +14,7 @@ import Complain from "./Components/Pages/Home/Complain";
 import ShowComplains from "./Components/Pages/Home/ShowComplains";
 import HotDail from "./Components/Pages/Home/HotDail";
 import ManageComplains from "./Components/Pages/Home/Manage Complain/ManageComplains";
+import MyProfile from "./Components/Pages/Home/MyProfile";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="complain" element={<Complain />} />
           <Route path="showComplains" element={<ShowComplains />} />
           <Route path="manageComplains" element={<ManageComplains />} />
+          <Route path="myProfile" element={<MyProfile />} />
           <Route path="hotDail" element={<HotDail />} />
           {/* <Route path="complains" element={<Complains />} />  */}
         </Route>

@@ -5,7 +5,7 @@ const ShowComplain = ({ complain }) => {
   return (
     <div>
       <div
-        style={{ width: "500px" }}
+        style={{ width: "" }}
         className="card bg-base-100 w-96 text-black shadow-2xl hover:bg-red-100  hover:shadow-inner"
       >
         <figure>
@@ -48,7 +48,6 @@ const ShowComplain = ({ complain }) => {
             {complain?.complain}
           </h2>
         </div>
-        <button className="btn font-bold">Accept</button>
       </div>
     </div>
   );

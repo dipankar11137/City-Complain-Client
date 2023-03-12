@@ -5,11 +5,19 @@ import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
 
 const Navbar = () => {
-  const [user] = useAuthState(auth);
-  const email = user?.email;
+  const user = useAuthState(auth);
   const logout = () => {
     signOut(auth);
   };
+  const email = user[0]?.email;
+  const [profiles, setProfile] = useState([]);
+  const profile = profiles[0];
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/user/${email}`)
+      .then((res) => res.json())
+      .then((data) => setProfile(data));
+  }, [profiles]);
 
   return (
     <div className="  navbar bg-green-900  text-white ">
@@ -35,20 +43,11 @@ const Navbar = () => {
       </div>
       {/* Image */}
       <div className="navbar-end">
-        {user ? (
+        {user[0] ? (
           <div className="dropdown dropdown-end  mr-16">
             <label tabindex="0" className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                {/* <img src="https://placeimg.com/80/80/people" alt="" /> */}
-                {user.photoURL ? (
-                  <img src={user?.photoURL} alt="" />
-                ) : (
-                  // <h1>D</h1>
-                  <img
-                    src="https://cdn.imgbin.com/6/25/24/imgbin-user-profile-computer-icons-user-interface-mystique-aBhn3R8cmqmP4ECky4DA3V88y.jpg"
-                    alt=""
-                  />
-                )}
+                <img src={profile?.image} alt="" />
               </div>
             </label>
             <ul
@@ -59,7 +58,7 @@ const Navbar = () => {
                 <Link to="/">Profile</Link>
               </li>
               <li>
-                <Link to="/">Settings</Link>
+                <Link to="/myProfile">Settings</Link>
               </li>
 
               <li className=" font-bold">
@@ -77,8 +76,8 @@ const Navbar = () => {
             </ul>
           </div>
         ) : (
-          <ul className="mr-5">
-            <li>
+          <ul className="mr-20 ">
+            <li className="font-semibold text-xl">
               <Link to="/login">Login</Link>
             </li>
           </ul>

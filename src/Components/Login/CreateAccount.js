@@ -235,7 +235,7 @@ const CreateAccount = () => {
                 <input
                   type="file"
                   placeholder="Your Location"
-                  className="input input-bordered bg-white lg:w-96 pt-2 sm:w-full   hover:shadow-xl shadow-inner"
+                  className="input input-bordered bg-white w-96 pt-2 sm:w-full   hover:shadow-xl shadow-inner"
                   {...register("image", {
                     required: {
                       value: true,
