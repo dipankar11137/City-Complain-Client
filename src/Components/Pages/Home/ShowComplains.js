@@ -44,7 +44,6 @@ const ShowComplains = () => {
           ))}
         </select>
       </div>
-      {/* <h1>Hello {complains.length}</h1> */}
       <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 mx-3 mt-10">
         {complains.map((complain) => (
           <ShowComplain key={complain._id} complain={complain}></ShowComplain>
