@@ -33,19 +33,23 @@ const Home = () => {
                   Profile
                 </Link>
               </li>
-              <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-2xl text-xl mt-3">
-                <Link to="/complain" className="font-bold ">
-                  Complain
-                </Link>
-              </li>
+
               {email === 'abc@def.com' ? (
+                <></>
+              ) : (
+                <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-2xl text-xl mt-3">
+                  <Link to="/complain" className="font-bold ">
+                    Complain
+                  </Link>
+                </li>
+              )}
+
+              {email === 'abc@def.com' && (
                 <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-2xl text-xl mt-3">
                   <Link to="/showComplains" className="font-bold ">
                     Show Complain
                   </Link>
                 </li>
-              ) : (
-                <></>
               )}
 
               <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-2xl text-xl mt-3">
@@ -53,11 +57,15 @@ const Home = () => {
                   Edit Profile
                 </Link>
               </li>
-              <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-2xl text-xl mt-3">
-                <Link to="/myComplain" className="font-bold ">
-                  My Complain
-                </Link>
-              </li>
+              {email === 'abc@def.com' ? (
+                <></>
+              ) : (
+                <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-2xl text-xl mt-3">
+                  <Link to="/myComplain" className="font-bold ">
+                    My Complain
+                  </Link>
+                </li>
+              )}
 
               {email === 'abc@def.com' ? (
                 <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-2xl text-xl mt-3">
