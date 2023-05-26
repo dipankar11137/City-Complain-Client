@@ -1,15 +1,13 @@
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import React from "react";
+import React from 'react';
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
   useUpdateProfile,
-} from "react-firebase-hooks/auth";
-import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import auth from "../../firebase.init";
-import login from "../../Images/Login/login.jpg";
+} from 'react-firebase-hooks/auth';
+import { useForm } from 'react-hook-form';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 
 const CreateAccount = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -18,7 +16,7 @@ const CreateAccount = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const imageHostKey = "c70a5fc10619997bd7315f2bf28d0f3e";
+  const imageHostKey = 'c70a5fc10619997bd7315f2bf28d0f3e';
 
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
@@ -27,11 +25,11 @@ const CreateAccount = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  let from = location.state?.from?.pathname || "/";
+  let from = location.state?.from?.pathname || '/';
 
   let signInError;
   if (gUser) {
-    navigate("/");
+    navigate('/');
   }
 
   const createDBUser = (name, email, phone, address, image, nid) => {
@@ -45,29 +43,31 @@ const CreateAccount = () => {
     };
 
     fetch(`http://localhost:5000/create-user/${email}`, {
-      method: "PUT",
+      method: 'PUT',
       headers: {
-        "content-type": "application/json",
+        'content-type': 'application/json',
       },
       body: JSON.stringify(updateProfile),
     })
-      .then((res) => res.json())
-      .then((data) => {});
+      .then(res => res.json())
+      .then(data => {
+        navigate('/');
+      });
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = data => {
     const image = data.image[0];
     createUserWithEmailAndPassword(data.email, data.password);
     updateProfile({ displayName: data.name });
     const formData = new FormData();
-    formData.append("image", image);
+    formData.append('image', image);
     const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imageHostKey}`;
     fetch(url, {
-      method: "POST",
+      method: 'POST',
       body: formData,
     })
-      .then((res) => res.json())
-      .then((imageData) => {
+      .then(res => res.json())
+      .then(imageData => {
         const image = imageData.data.url;
         createDBUser(
           data.name,
@@ -77,8 +77,8 @@ const CreateAccount = () => {
           image,
           data.nid
         );
-        toast.success("Updated profile");
-        navigate("/");
+        toast.success('Updated profile');
+        navigate('/');
       });
   };
   return (
@@ -98,15 +98,15 @@ const CreateAccount = () => {
                   type="text"
                   placeholder="Your name"
                   className="input input-bordered bg-white w-full  "
-                  {...register("name", {
+                  {...register('name', {
                     required: {
                       value: true,
-                      message: "Name is Required",
+                      message: 'Name is Required',
                     },
                   })}
                 />
                 <label className="label">
-                  {errors.name?.type === "required" && (
+                  {errors.name?.type === 'required' && (
                     <span className="label-text-alt text-red-500">
                       {errors.name.message}
                     </span>
@@ -122,24 +122,24 @@ const CreateAccount = () => {
                   type="email"
                   placeholder="Your Email"
                   className="input input-bordered bg-white w-full  "
-                  {...register("email", {
+                  {...register('email', {
                     required: {
                       value: true,
-                      message: "Email is Required",
+                      message: 'Email is Required',
                     },
                     pattern: {
                       value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                      message: "Provide a valid Email",
+                      message: 'Provide a valid Email',
                     },
                   })}
                 />
                 <label className="label">
-                  {errors.email?.type === "required" && (
+                  {errors.email?.type === 'required' && (
                     <span className="label-text-alt text-red-500">
                       {errors.email.message}
                     </span>
                   )}
-                  {errors.email?.type === "pattern" && (
+                  {errors.email?.type === 'pattern' && (
                     <span className="label-text-alt text-red-500">
                       {errors.email.message}
                     </span>
@@ -155,24 +155,24 @@ const CreateAccount = () => {
                   type="number"
                   placeholder="Your Phone Number"
                   className="input input-bordered bg-white w-full  "
-                  {...register("phone", {
+                  {...register('phone', {
                     required: {
                       value: true,
-                      message: "Phone is Required",
+                      message: 'Phone is Required',
                     },
                     pattern: {
                       value: /^\d{11}$/,
-                      message: "Provide a valid Phone Number",
+                      message: 'Provide a valid Phone Number',
                     },
                   })}
                 />
                 <label className="label">
-                  {errors.phone?.type === "required" && (
+                  {errors.phone?.type === 'required' && (
                     <span className="label-text-alt text-red-500">
                       {errors.phone.message}
                     </span>
                   )}
-                  {errors.phone?.type === "pattern" && (
+                  {errors.phone?.type === 'pattern' && (
                     <span className="label-text-alt text-red-500">
                       {errors.phone.message}
                     </span>
@@ -188,15 +188,15 @@ const CreateAccount = () => {
                   type="number"
                   placeholder="Your Nid Number"
                   className="input input-bordered bg-white w-full  "
-                  {...register("nid", {
+                  {...register('nid', {
                     required: {
                       value: true,
-                      message: "Nid is Required",
+                      message: 'Nid is Required',
                     },
                   })}
                 />
                 <label className="label">
-                  {errors.nid?.type === "required" && (
+                  {errors.nid?.type === 'required' && (
                     <span className="label-text-alt text-red-500">
                       {errors.nid.message}
                     </span>
@@ -212,15 +212,15 @@ const CreateAccount = () => {
                   type="text"
                   placeholder="Enter Your Address"
                   className="input input-bordered bg-white w-full  "
-                  {...register("address", {
+                  {...register('address', {
                     required: {
                       value: true,
-                      message: "Address is Required",
+                      message: 'Address is Required',
                     },
                   })}
                 />
                 <label className="label">
-                  {errors.address?.type === "required" && (
+                  {errors.address?.type === 'required' && (
                     <span className="label-text-alt text-red-500">
                       {errors.address.message}
                     </span>
@@ -236,15 +236,15 @@ const CreateAccount = () => {
                   type="file"
                   placeholder="Your Location"
                   className="input input-bordered bg-white w-96 pt-2 sm:w-full   hover:shadow-xl shadow-inner"
-                  {...register("image", {
+                  {...register('image', {
                     required: {
                       value: true,
-                      message: "Image is Required",
+                      message: 'Image is Required',
                     },
                   })}
                 />
                 <label className="label">
-                  {errors.image?.type === "required" && (
+                  {errors.image?.type === 'required' && (
                     <span className="label-text-alt text-red-500">
                       {errors?.image?.message}
                     </span>
@@ -260,28 +260,28 @@ const CreateAccount = () => {
                   type="password"
                   placeholder="Password"
                   className="input input-bordered bg-white w-full  "
-                  {...register("password", {
+                  {...register('password', {
                     required: {
                       value: true,
-                      message: "Password is Required",
+                      message: 'Password is Required',
                     },
                     minLength: {
                       value: 6,
-                      message: "Must be 6 characters or longer",
+                      message: 'Must be 6 characters or longer',
                     },
                     pattern: {
                       value: /^\d{6}$/,
-                      message: "Enter six digit Or gater than six",
+                      message: 'Enter six digit Or gater than six',
                     },
                   })}
                 />
                 <label className="label">
-                  {errors.password?.type === "required" && (
+                  {errors.password?.type === 'required' && (
                     <span className="label-text-alt text-red-500">
                       {errors.password.message}
                     </span>
                   )}
-                  {errors.password?.type === "minLength" && (
+                  {errors.password?.type === 'minLength' && (
                     <span className="label-text-alt text-red-500">
                       {errors.password.message}
                     </span>
@@ -298,7 +298,7 @@ const CreateAccount = () => {
             </form>
             <p>
               <small>
-                Already Have an Account ?{" "}
+                Already Have an Account ?{' '}
                 <Link to="/login" className="text-orange-600 font-bold">
                   Please Login
                 </Link>

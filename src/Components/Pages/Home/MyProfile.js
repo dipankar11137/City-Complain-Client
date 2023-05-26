@@ -16,7 +16,7 @@ const MyProfile = () => {
 
   const {
     register,
-    formState: { errors },
+    // formState: { errors },
     handleSubmit,
     reset,
   } = useForm();
