@@ -6,12 +6,12 @@ import {
   useUpdateProfile,
 } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const CreateAccount = () => {
-  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [gUser] = useSignInWithGoogle(auth);
 
   const {
     register,
@@ -20,13 +20,12 @@ const CreateAccount = () => {
   } = useForm();
   const imageHostKey = 'c70a5fc10619997bd7315f2bf28d0f3e';
 
-  const [createUserWithEmailAndPassword, user, loading, error] =
+  const [createUserWithEmailAndPassword] =
     useCreateUserWithEmailAndPassword(auth);
   const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
 
-  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const [updateProfile] = useUpdateProfile(auth);
   const navigate = useNavigate();
-  const location = useLocation();
 
   let signInError;
   if (gUser) {
