@@ -1,21 +1,21 @@
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
 import CreateAccount from "./Components/Login/CreateAccount";
-import Login from "./Components/Login/Login";
-import Home from "./Components/Pages/Home/Home";
-import Footer from "./Components/Share/Footer";
-import Navbar from "./Components/Share/Navbar";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import NotFound from "./Components/Share/NotFound";
-import RequireAuth from "./Components/Login/RequireAUth";
-import Profile from "./Components/Pages/Home/Profile";
+import Login from './Components/Login/Login';
+import RequireAuth from './Components/Login/RequireAUth';
 import Complain from "./Components/Pages/Home/Complain";
-import ShowComplains from "./Components/Pages/Home/ShowComplains";
+import Home from './Components/Pages/Home/Home';
 import HotDail from "./Components/Pages/Home/HotDail";
-import ManageComplains from "./Components/Pages/Home/Manage Complain/ManageComplains";
-import MyProfile from "./Components/Pages/Home/MyProfile";
+import ManageComplains from './Components/Pages/Home/Manage Complain/ManageComplains';
 import MyComplain from "./Components/Pages/Home/MyComplain";
+import MyProfile from './Components/Pages/Home/MyProfile';
+import Profile from './Components/Pages/Home/Profile';
+import ShowComplains from './Components/Pages/Home/ShowComplains';
+import Footer from './Components/Share/Footer';
+import Navbar from './Components/Share/Navbar';
+import NotFound from './Components/Share/NotFound';
 
 function App() {
   return (

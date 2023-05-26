@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   useCreateUserWithEmailAndPassword,
+  useSignInWithEmailAndPassword,
   useSignInWithGoogle,
   useUpdateProfile,
 } from 'react-firebase-hooks/auth';
@@ -11,6 +12,7 @@ import auth from '../../firebase.init';
 
 const CreateAccount = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+
   const {
     register,
     formState: { errors },
@@ -20,12 +22,11 @@ const CreateAccount = () => {
 
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   const navigate = useNavigate();
   const location = useLocation();
-
-  let from = location.state?.from?.pathname || '/';
 
   let signInError;
   if (gUser) {
@@ -41,6 +42,7 @@ const CreateAccount = () => {
       image: image,
       nid: nid,
     };
+    console.log(updateProfile);
 
     fetch(`http://localhost:5000/create-user/${email}`, {
       method: 'PUT',
@@ -51,13 +53,16 @@ const CreateAccount = () => {
     })
       .then(res => res.json())
       .then(data => {
+        toast.success('Updated profile');
         navigate('/');
       });
   };
 
   const onSubmit = data => {
+    // console.log(data);
     const image = data.image[0];
     createUserWithEmailAndPassword(data.email, data.password);
+    signInWithEmailAndPassword(data.email, data.password);
     updateProfile({ displayName: data.name });
     const formData = new FormData();
     formData.append('image', image);
@@ -77,19 +82,27 @@ const CreateAccount = () => {
           image,
           data.nid
         );
-        toast.success('Updated profile');
+        // toast.success('Updated profile');
         navigate('/');
       });
   };
   return (
-    <div className="flex justify-center pt-10 pb-20 bg-slate-200">
-      <div className="flex  justify-center items-center  ">
-        <div className="card w-11/12 shadow-xl bg-violet-50">
+    <div
+      class="hero min-h-screen "
+      style={{
+        background: `url(https://mlawiy0je0ms.i.optimole.com/206F41w.2d6g.2d53d/w:1800/h:1012/q:auto/https://www.planetwatch.io/wp-content/uploads/2022/08/Air-pollution.jpg)`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+      }}
+      className="flex justify-center pt-10 pb-20 bg-slate-200"
+    >
+      <div className="flex  justify-center items-center  my-5">
+        <div className="card w-[500px] shadow-xl bg-violet-50">
           <div className="card-body">
             <h2 className="text-center text-2xl font-bold">SignUp</h2>
 
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="form-control w-full  ">
+              <div className="form-control   ">
                 {/* name */}
                 <label className="label">
                   <span className="label-text">Name</span>

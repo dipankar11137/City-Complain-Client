@@ -39,7 +39,7 @@ const Profile = () => {
               </div>
               <div className="flex items-baseline justify-between mt-1">
                 <p className="font-bold w-1/3 text-2xl">Email</p>
-                <span className="w-2/3 text-2xl">: {profile?.email}</span>
+                <span className="w-2/3 text-lg">: {profile?.email}</span>
               </div>
               {profile?.birthday && (
                 <div className="flex items-baseline justify-between mt-1">
@@ -67,32 +67,6 @@ const Profile = () => {
               )}
               <h1 className="text-2xl mt-3">{profile?.address}</h1>
             </div>
-            {/* <div className="mt-10">
-            <h1 className="text-2xl">
-              <span className="font-bold pr-4">Name :</span> {profile?.name}
-            </h1>
-            <h1 className="text-2xl">
-              <span className="font-bold pr-4">Phone :</span>
-              {profile?.phone}
-            </h1>
-            <h1 className="text-2xl">
-              <span className="font-bold pr-6">Email :</span>
-              {profile?.email}
-            </h1>
-            <h1 className="text-2xl">
-              <span className="font-bold pr-9">Nid :</span> {profile?.nid}
-            </h1>
-            <h1 className="text-2xl">
-              <span className="font-bold pr-9">Birthday :</span> {profile?.birthday}
-            </h1>
-            <h1 className="text-2xl">
-              <span className="font-bold pr-9">Sex :</span> {profile?.sex}
-            </h1>
-            <h1 className="text-2xl">
-              <span className="font-bold pr-9">Bio :</span> {profile?.bio}
-            </h1>
-            <h1 className="text-2xl">{profile?.address}</h1>
-          </div> */}
           </div>
         </div>
       </div>
