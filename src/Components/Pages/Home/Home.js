@@ -15,25 +15,31 @@ const Home = () => {
             type="checkbox"
             className="drawer-toggle"
           />
-          <div   className="drawer-content  ">
-         
+          <div className="drawer-content  ">
             <Outlet></Outlet>
           </div>
           <div className="drawer-side ">
             <label for="dashboard-sidebar" className="drawer-overlay "></label>
-            <ul className="menu p-4 overflow-y-auto w-60 bg-lime-700 text-base-content  ">
-              <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
+            <ul
+              style={{
+                background: `url(https://i.pinimg.com/originals/0e/c4/94/0ec4941e46810561d9eb1ce89d975228.jpg)`,
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+              }}
+              className="menu p-4 overflow-y-auto w-60    text-white"
+            >
+              <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-2xl text-xl mt-5">
                 <Link to="/" className="font-bold ">
                   Profile
                 </Link>
               </li>
-              <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
+              <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-2xl text-xl mt-3">
                 <Link to="/complain" className="font-bold ">
                   Complain
                 </Link>
               </li>
               {email === 'abc@def.com' ? (
-                <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
+                <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-2xl text-xl mt-3">
                   <Link to="/showComplains" className="font-bold ">
                     Show Complain
                   </Link>
@@ -42,19 +48,19 @@ const Home = () => {
                 <></>
               )}
 
-              <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
+              <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-2xl text-xl mt-3">
                 <Link to="/myProfile" className="font-bold ">
                   Edit Profile
                 </Link>
               </li>
-              <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
+              <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-2xl text-xl mt-3">
                 <Link to="/myComplain" className="font-bold ">
                   My Complain
                 </Link>
               </li>
 
               {email === 'abc@def.com' ? (
-                <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
+                <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-2xl text-xl mt-3">
                   <Link to="/manageComplains" className="font-bold ">
                     Manage Complain
                   </Link>
@@ -63,7 +69,7 @@ const Home = () => {
                 <></>
               )}
 
-              <li className="hover:bg-red-700 rounded-lg hover:text-white hover:text-xl">
+              <li className="hover:bg-red-700 rounded-lg hover:text-white hover:text-2xl text-xl mt-3">
                 <Link to="/hotDail" className="font-bold ">
                   Hot Dails
                 </Link>
