@@ -15,15 +15,13 @@ const Home = () => {
             type="checkbox"
             className="drawer-toggle"
           />
-          <div className="drawer-content ">
-            {/* <h2 className="text-4xl bg-slate-900 text-lime-400 font-bold text-center mb-3 uppercase p-1">
-            Welcome <span className="">to My</span> DashBoard
-          </h2> */}
+          <div   className="drawer-content  ">
+         
             <Outlet></Outlet>
           </div>
           <div className="drawer-side ">
             <label for="dashboard-sidebar" className="drawer-overlay "></label>
-            <ul className="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">
+            <ul className="menu p-4 overflow-y-auto w-60 bg-lime-700 text-base-content  ">
               <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
                 <Link to="/" className="font-bold ">
                   Profile
@@ -34,7 +32,7 @@ const Home = () => {
                   Complain
                 </Link>
               </li>
-              {email === "abc@def.com" ? (
+              {email === 'abc@def.com' ? (
                 <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
                   <Link to="/showComplains" className="font-bold ">
                     Show Complain
@@ -55,7 +53,7 @@ const Home = () => {
                 </Link>
               </li>
 
-              {email === "abc@def.com" ? (
+              {email === 'abc@def.com' ? (
                 <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl">
                   <Link to="/manageComplains" className="font-bold ">
                     Manage Complain
