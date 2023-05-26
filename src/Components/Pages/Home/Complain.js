@@ -192,7 +192,14 @@ const Complain = () => {
       });
   };
   return (
-    <div className="flex justify-center">
+    <div
+      style={{
+        background: `url(https://mlawiy0je0ms.i.optimole.com/206F41w.2d6g.2d53d/w:1800/h:1012/q:auto/https://www.planetwatch.io/wp-content/uploads/2022/08/Air-pollution.jpg)`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+      }}
+      className="flex justify-center"
+    >
       <div>
         <div className="shadow-lg mt-5 p-4 bg-white rounded-lg mb-20">
           <form
@@ -205,27 +212,27 @@ const Complain = () => {
               </h1>
               {/* Location Division */}
               <select
-                onChange={(e) => setDivision(e.target.value)}
-                className="select select-info w-full max-w-xs hover:shadow-xl"
+                onChange={e => setDivision(e.target.value)}
+                className="select select-info w-full hover:shadow-xl"
               >
                 <option disabled selected>
                   select Your Division
                 </option>
 
-                {divisionNames.map((data) => (
+                {divisionNames.map(data => (
                   <option>{data}</option>
                 ))}
               </select>
               {/* Location District */}
               <select
-                onChange={(e) => setDistrict(e.target.value)}
-                className="select select-info w-full max-w-xs hover:shadow-xl mt-3"
+                onChange={e => setDistrict(e.target.value)}
+                className="select select-info w-full  hover:shadow-xl mt-3"
               >
                 <option disabled selected>
                   select Your District
                 </option>
 
-                {districtNames.map((data) => (
+                {districtNames.map(data => (
                   <option>{data}</option>
                 ))}
               </select>
@@ -237,16 +244,16 @@ const Complain = () => {
               <input
                 type="text"
                 placeholder="Current Location"
-                className="input input-bordered bg-white lg:w-96 sm:w-full max-w-xs hover:shadow-xl shadow-inner"
-                {...register("location", {
+                className="input input-bordered bg-white  sm:w-full  hover:shadow-xl shadow-inner"
+                {...register('location', {
                   required: {
                     value: true,
-                    message: "Location is Required",
+                    message: 'Location is Required',
                   },
                 })}
               />
               <label className="label">
-                {errors.location?.type === "required" && (
+                {errors.location?.type === 'required' && (
                   <span className="label-text-alt text-red-500">
                     {errors?.location?.message}
                   </span>
@@ -258,17 +265,17 @@ const Complain = () => {
               </label>
               <input
                 type="date"
-                className="input input-bordered bg-white lg:w-96 sm:w-full max-w-xs hover:shadow-xl shadow-inner"
-                {...register("date", {
+                className="input input-bordered bg-white  sm:w-full  hover:shadow-xl shadow-inner"
+                {...register('date', {
                   required: {
                     value: true,
                     size: 20,
-                    message: "Date is Required",
+                    message: 'Date is Required',
                   },
                 })}
               />
               <label className="label">
-                {errors.date?.type === "required" && (
+                {errors.date?.type === 'required' && (
                   <span className="label-text-alt text-red-500">
                     {errors?.date?.message}
                   </span>
@@ -279,14 +286,14 @@ const Complain = () => {
 
               {/* select Ministry */}
               <select
-                onChange={(e) => setMinistry(e.target.value)}
-                className="select select-info w-full max-w-xs hover:shadow-xl mt-3"
+                onChange={e => setMinistry(e.target.value)}
+                className="select select-info w-full  hover:shadow-xl mt-3"
               >
                 <option disabled selected>
                   Select Ministry
                 </option>
 
-                {ministryNames.map((data) => (
+                {ministryNames.map(data => (
                   <option>{data}</option>
                 ))}
               </select>
@@ -298,16 +305,16 @@ const Complain = () => {
               <textarea
                 type="textarea"
                 placeholder="Write Your Complain"
-                className="input input-bordered bg-white lg:w-96 h-28 sm:w-full max-w-xs hover:shadow-xl shadow-inner"
-                {...register("complain", {
+                className="input input-bordered bg-white lg:w-96 h-28 sm:w-full  hover:shadow-xl shadow-inner"
+                {...register('complain', {
                   required: {
                     value: true,
-                    message: "Complain is Required",
+                    message: 'Complain is Required',
                   },
                 })}
               />
               <label className="label">
-                {errors.complain?.type === "required" && (
+                {errors.complain?.type === 'required' && (
                   <span className="label-text-alt text-red-500">
                     {errors?.complain?.message}
                   </span>
@@ -321,16 +328,16 @@ const Complain = () => {
               <input
                 type="file"
                 placeholder="Your Location"
-                className="input input-bordered bg-white lg:w-96 pt-2 sm:w-full max-w-xs hover:shadow-xl shadow-inner"
-                {...register("image", {
+                className="input input-bordered bg-white lg:w-96 pt-2 sm:w-full  hover:shadow-xl shadow-inner"
+                {...register('image', {
                   required: {
                     value: true,
-                    message: "Image is Required",
+                    message: 'Image is Required',
                   },
                 })}
               />
               <label className="label">
-                {errors.image?.type === "required" && (
+                {errors.image?.type === 'required' && (
                   <span className="label-text-alt text-red-500">
                     {errors?.image?.message}
                   </span>
