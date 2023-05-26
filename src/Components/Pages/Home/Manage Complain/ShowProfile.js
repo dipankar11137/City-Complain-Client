@@ -1,17 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-const ShowProfile = ({ email, setChangeEmail }) => {
-  const [profiles, setProfile] = useState([]);
-  const profile = profiles[0];
-  // console.log(profile);
-  // console.log(email);
-
-  useEffect(() => {
-    // fetch(`http://localhost:5000/user/${email}`)
-    fetch(`http://localhost:5000/user/${email}`)
-      .then(res => res.json())
-      .then(data => setProfile(data));
-  }, [email]);
+const ShowProfile = ({ profile, setChangeEmail }) => {
   return (
     <div>
       <input type="checkbox" id="show-profile" className="modal-toggle" />
