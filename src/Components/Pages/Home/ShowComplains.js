@@ -32,20 +32,20 @@ const ShowComplains = () => {
           Complain Number : {complains?.length}
         </h1>
         <select
-          onChange={(e) => setDivision(e.target.value)}
-          className="select select-info w-full max-w-xs hover:shadow-xl mt-2"
+          onChange={e => setDivision(e.target.value)}
+          className="select select-info w-full max-w-xs hover:shadow-xl mt-2 text-xl"
         >
-          <option disabled selected>
+          <option disabled hidden selected>
             Dhaka
           </option>
 
-          {divisionNames.map((data) => (
+          {divisionNames.map(data => (
             <option>{data}</option>
           ))}
         </select>
       </div>
       <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 mx-3 mt-10">
-        {complains.map((complain) => (
+        {complains.map(complain => (
           <ShowComplain key={complain._id} complain={complain}></ShowComplain>
         ))}
       </div>
