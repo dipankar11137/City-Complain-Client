@@ -264,7 +264,7 @@ const CreateAccount = () => {
                 </label>
               </div>
               {/* password */}
-              <div className="form-control w-full  ">
+              {/* <div className="form-control w-full  ">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
@@ -281,10 +281,6 @@ const CreateAccount = () => {
                       value: 6,
                       message: 'Must be 6 characters or longer',
                     },
-                    pattern: {
-                      value: /^\d{6}$/,
-                      message: 'Enter six digit Or gater than six',
-                    },
                   })}
                 />
                 <label className="label">
@@ -299,6 +295,32 @@ const CreateAccount = () => {
                     </span>
                   )}
                 </label>
+              </div> */}
+              <div className="form-control   mb-2 w-full">
+                <label className="label">
+                  {' '}
+                  <span className="label-text">Password</span>
+                </label>
+                <input
+                  type="password"
+                  placeholder="Password"
+                  {...register('password', {
+                    required: 'Password is required',
+                    minLength: {
+                      value: 6,
+                      message: 'Password must be 6 characters long',
+                    },
+                    pattern: {
+                      value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
+                      message:
+                        'Password must have uppercase, number and special characters',
+                    },
+                  })}
+                  className="input input-bordered w-full "
+                />
+                {errors.password && (
+                  <p className="text-red-500">{errors.password.message}</p>
+                )}
               </div>
               {signInError}
               {/* submit */}
