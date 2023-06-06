@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../firebase.init";
-import { signOut } from "firebase/auth";
+import { signOut } from 'firebase/auth';
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const Navbar = () => {
   const user = useAuthState(auth);
@@ -15,9 +15,9 @@ const Navbar = () => {
 
   useEffect(() => {
     fetch(`http://localhost:5000/user/${email}`)
-      .then((res) => res.json())
-      .then((data) => setProfile(data));
-  }, [profiles]);
+      .then(res => res.json())
+      .then(data => setProfile(data));
+  }, [profiles, email]);
 
   return (
     <div className="  navbar bg-green-900  text-white ">

@@ -4,7 +4,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
 import CreateAccount from "./Components/Login/CreateAccount";
 import Login from './Components/Login/Login';
-import RequireAuth from './Components/Login/RequireAUth';
 import Complain from "./Components/Pages/Home/Complain";
 import Home from './Components/Pages/Home/Home';
 import HotDail from "./Components/Pages/Home/HotDail";
@@ -28,14 +27,7 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
 
-        <Route
-          path="/"
-          element={
-            <RequireAuth>
-              <Home />
-            </RequireAuth>
-          }
-        >
+        <Route path="/" element={<Home />}>
           <Route index element={<Profile />} />
           <Route path="complain" element={<Complain />} />
           <Route path="showComplains" element={<ShowComplains />} />

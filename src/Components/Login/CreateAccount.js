@@ -2,7 +2,6 @@ import React from 'react';
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithEmailAndPassword,
-  useSignInWithGoogle,
   useUpdateProfile,
 } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
@@ -11,8 +10,6 @@ import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const CreateAccount = () => {
-  const [gUser] = useSignInWithGoogle(auth);
-
   const {
     register,
     formState: { errors },
@@ -28,9 +25,6 @@ const CreateAccount = () => {
   const navigate = useNavigate();
 
   let signInError;
-  if (gUser) {
-    navigate('/');
-  }
 
   const createDBUser = (name, email, phone, address, image, nid) => {
     const updateProfile = {
@@ -58,7 +52,7 @@ const CreateAccount = () => {
   };
 
   const onSubmit = data => {
-    // console.log(data);
+    console.log(data);
     const image = data.image[0];
     createUserWithEmailAndPassword(data.email, data.password);
     signInWithEmailAndPassword(data.email, data.password);
@@ -82,7 +76,7 @@ const CreateAccount = () => {
           data.nid
         );
         // toast.success('Updated profile');
-        navigate('/');
+        // navigate('/');
       });
   };
   return (
