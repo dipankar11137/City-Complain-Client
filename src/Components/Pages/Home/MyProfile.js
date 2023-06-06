@@ -77,7 +77,7 @@ const MyProfile = () => {
       const phone = data?.phone || user.phone;
       const sex = updateSex || user.sex;
       const bio = data?.bio || user.bio;
-      const image = user.photo;
+      // const image = data?.photo || user?.photo;
 
       const updatedProfile = {
         name,
