@@ -51,11 +51,10 @@ const CreateAccount = () => {
       });
   };
 
-  const onSubmit = data => {
-    console.log(data);
+  const onSubmit = async data => {
     const image = data.image[0];
-    createUserWithEmailAndPassword(data.email, data.password);
-    signInWithEmailAndPassword(data.email, data.password);
+    await createUserWithEmailAndPassword(data.email, data.password);
+    await signInWithEmailAndPassword(data.email, data.password);
     updateProfile({ displayName: data.name });
     const formData = new FormData();
     formData.append('image', image);
@@ -67,6 +66,7 @@ const CreateAccount = () => {
       .then(res => res.json())
       .then(imageData => {
         const image = imageData.data.url;
+        console.log(image);
         createDBUser(
           data.name,
           data.email,
