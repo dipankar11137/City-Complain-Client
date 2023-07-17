@@ -26,6 +26,7 @@ const AddReview = ({ email, setReview }) => {
   } = useForm();
   const onSubmit = data => {
     const updateData = { ...data, email, rating, userName: name, image };
+    console.log(updateData);
 
     fetch(`http://localhost:5000/review`, {
       method: 'POST',

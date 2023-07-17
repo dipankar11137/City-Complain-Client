@@ -1,17 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BiDownArrowCircle, BiUpArrowCircle } from 'react-icons/bi';
 import AddReview from './Review/AddReview';
 import ShowReview from './Review/ShowReview';
 
 const ShowComplain = ({ complain }) => {
-  console.log(complain);
+  // console.log(complain);
   const [arrow, setArrow] = useState(false);
   const [review, setReview] = useState(false);
   // const navigator = useNavigate();
   const [reviews, setReviews] = useState([]);
-  const handleBook = id => {
-    navigator(`/bookService/${id}`);
-  };
+  useEffect(() => {
+    const url = `http://localhost:5000/review/${complain?.email}`;
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        // setArrow(false);
+        setReviews(data);
+      });
+  }, [reviews, complain?.email]);
+
   return (
     <div>
       <div
