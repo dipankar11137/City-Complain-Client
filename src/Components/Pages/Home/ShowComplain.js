@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from 'react';
+import { BiDownArrowCircle, BiUpArrowCircle } from 'react-icons/bi';
+import AddReview from './Review/AddReview';
+import ShowReview from './Review/ShowReview';
 
 const ShowComplain = ({ complain }) => {
   console.log(complain);
+  const [arrow, setArrow] = useState(false);
+  const [review, setReview] = useState(false);
+  // const navigator = useNavigate();
+  const [reviews, setReviews] = useState([]);
+  const handleBook = id => {
+    navigator(`/bookService/${id}`);
+  };
   return (
     <div>
       <div
@@ -52,6 +62,60 @@ const ShowComplain = ({ complain }) => {
             <span className="font-bold text-lg"> Complain by : </span>
             {complain?.profile?.name}
           </h2>
+        </div>
+        <div>
+          <div className="mb-2 p-2 flex justify-between">
+            <div>
+              {review ? (
+                <button
+                  onClick={() => setReview(false)}
+                  className="btn font-bold btn-primary text-white"
+                >
+                  minimize Review{' '}
+                </button>
+              ) : (
+                <button
+                  onClick={() => setReview(true)}
+                  className="btn font-bold btn-accent text-white"
+                >
+                  Add Review{' '}
+                </button>
+              )}
+            </div>
+            {arrow ? (
+              <button onClick={() => setArrow(false)}>
+                <BiUpArrowCircle className="text-4xl font-bold mr-4 text-primary" />
+              </button>
+            ) : (
+              <button onClick={() => setArrow(true)}>
+                <BiDownArrowCircle className="text-4xl font-bold mr-4 text-primary" />
+              </button>
+            )}
+          </div>
+          {/* add review */}
+          <div>
+            {review ? (
+              <div>
+                <AddReview email={complain?.email} setReview={setReview} />
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
+          {/* show review */}
+          <div>
+            {arrow ? (
+              <div>
+                {reviews.map(review => (
+                  <ShowReview key={review._id} review={review}></ShowReview>
+                ))}
+              </div>
+            ) : (
+              <></>
+            )}
+
+            {/* review */}
+          </div>
         </div>
       </div>
     </div>
