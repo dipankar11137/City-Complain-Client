@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BiDownArrowCircle, BiUpArrowCircle } from 'react-icons/bi';
 import { FaFileDownload } from 'react-icons/fa';
+import ReactToPdf from 'react-to-pdf';
 import AddReview from './Review/AddReview';
-import generatePDF from './Review/Pdf/generatePDF';
 import ShowReview from './Review/ShowReview';
 
 const ShowComplain = ({ complain }) => {
@@ -20,31 +20,35 @@ const ShowComplain = ({ complain }) => {
         setReviews(data);
       });
   }, [reviews, complain?.email]);
+
   // pdf
-  const contentRef = useRef(null);
+  const cardRef = React.useRef();
 
-  const handleDownloadPDF = () => {
-    generatePDF(contentRef, 'downloaded_content');
-  };
-
+  const pdfFilename = complain?.ministry
+    ? `${complain.ministry}.pdf`
+    : 'card.pdf';
   return (
     <div>
-      <div ref={contentRef}>
+      <div ref={cardRef}>
         <div
           style={{ width: '' }}
           className="card bg-base-100 w-96 text-black shadow-2xl hover:bg-red-100  hover:shadow-inner"
         >
           <div className="flex justify-end">
-            <button
-              style={{ position: 'absolute' }}
-              onClick={handleDownloadPDF}
-            >
+            {/* <button style={{ position: 'absolute' }} onClick={toPdf}>
               <FaFileDownload className="text-secondary text-5xl " />
-            </button>
+            </button> */}
+            <ReactToPdf targetRef={cardRef} filename={pdfFilename}>
+              {({ toPdf }) => (
+                <button style={{ position: 'absolute' }} onClick={toPdf}>
+                  <FaFileDownload className="text-white text-5xl " />
+                </button>
+              )}
+            </ReactToPdf>
           </div>
           <figure>
             <img
-              className="w-full pic-style"
+              className="w-full "
               src={complain?.image}
               alt=""
               style={{ height: '350px' }}
