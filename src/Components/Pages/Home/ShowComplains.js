@@ -13,7 +13,7 @@ const ShowComplains = () => {
       .then(data => setComplains(data));
   }, [division]);
   useEffect(() => {
-    fetch(`http://localhost:5000/complain/${date}`)
+    fetch(`http://localhost:5000/complainDate/${date}`)
       .then(res => res.json())
       .then(data => setComplains(data));
   }, [date]);
