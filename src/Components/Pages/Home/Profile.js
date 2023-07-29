@@ -65,6 +65,12 @@ const Profile = () => {
                     <span className="w-2/3 text-2xl">: {profile?.sex}</span>
                   </div>
                 )}
+                {profile?.nid && (
+                  <div className="flex items-baseline justify-between mt-1">
+                    <p className="font-bold w-1/3 text-2xl">Nid</p>
+                    <span className="w-2/3 text-2xl">: {profile?.nid}</span>
+                  </div>
+                )}
 
                 {profile?.bio && (
                   <div className="flex items-baseline justify-between mt-1">
@@ -78,7 +84,6 @@ const Profile = () => {
           </div>
         </div>
       </Preview>
-    
     </div>
   );
 };

@@ -143,6 +143,10 @@ const MyProfile = () => {
               <span className="w-2/3">: {user?.sex}</span>
             </div>
             <div className="flex items-baseline justify-between mt-1">
+              <p className="font-bold w-1/3">Nid</p>
+              <span className="w-2/3">: {user?.nid}</span>
+            </div>
+            <div className="flex items-baseline justify-between mt-1">
               <p className="font-bold w-1/3">Bio</p>
               <span className="w-2/3">: {user?.bio}</span>
             </div>
