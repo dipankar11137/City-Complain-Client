@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { BiDownArrowCircle, BiUpArrowCircle } from 'react-icons/bi';
 import { FaFileDownload } from 'react-icons/fa';
 import ReactToPdf from 'react-to-pdf';
+import auth from '../../../firebase.init';
 import AddReview from './Review/AddReview';
 import ShowReview from './Review/ShowReview';
 
 const ShowComplain = ({ complain }) => {
-  // console.log(complain);
+  const [user] = useAuthState(auth);
+  const userEmail = user?.email;
+  // console.log(complain); 24392
   const [arrow, setArrow] = useState(false);
   const [review, setReview] = useState(false);
   // const navigator = useNavigate();
@@ -94,20 +98,27 @@ const ShowComplain = ({ complain }) => {
           <div>
             <div className="mb-2 p-2 flex justify-between">
               <div>
-                {review ? (
-                  <button
-                    onClick={() => setReview(false)}
-                    className="btn font-bold btn-primary text-white"
-                  >
-                    minimize Review{' '}
-                  </button>
+                {userEmail === 'abc@def.com' ? (
+                  <>
+                    {' '}
+                    {review ? (
+                      <button
+                        onClick={() => setReview(false)}
+                        className="btn font-bold btn-primary text-white"
+                      >
+                        minimize Review{' '}
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => setReview(true)}
+                        className="btn font-bold btn-accent text-white"
+                      >
+                        Add Review{' '}
+                      </button>
+                    )}
+                  </>
                 ) : (
-                  <button
-                    onClick={() => setReview(true)}
-                    className="btn font-bold btn-accent text-white"
-                  >
-                    Add Review{' '}
-                  </button>
+                  <></>
                 )}
               </div>
               {arrow ? (

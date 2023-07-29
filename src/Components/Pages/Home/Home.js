@@ -68,7 +68,7 @@ const Home = () => {
               )}
 
               {email === 'abc@def.com' ? (
-                <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-2xl text-xl mt-3">
+                <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl text-xl mt-3">
                   <Link to="/manageComplains" className="font-bold ">
                     Manage Complain
                   </Link>
