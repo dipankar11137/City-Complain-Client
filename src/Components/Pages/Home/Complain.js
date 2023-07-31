@@ -198,7 +198,7 @@ const Complain = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
       }}
-      className="flex justify-center"
+      className="flex justify-center h-screen"
     >
       <div>
         <div className="shadow-lg mt-5 p-4 bg-white rounded-lg mb-20">
