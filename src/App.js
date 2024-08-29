@@ -7,6 +7,7 @@ import Login from './Components/Login/Login';
 import RequireAuth from './Components/Login/RequireAUth';
 import Complain from "./Components/Pages/Home/Complain";
 import Home from './Components/Pages/Home/Home';
+import HomeSection from './Components/Pages/Home/HomeSection';
 import HotDail from "./Components/Pages/Home/HotDail";
 import ManageComplains from './Components/Pages/Home/Manage Complain/ManageComplains';
 import MyComplain from "./Components/Pages/Home/MyComplain";
@@ -37,7 +38,8 @@ function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<Profile />} />
+          <Route index element={<HomeSection />} />
+          <Route path="profile" element={<Profile />} />
           <Route path="complain" element={<Complain />} />
           <Route path="showComplains" element={<ShowComplains />} />
           <Route path="manageComplains" element={<ManageComplains />} />

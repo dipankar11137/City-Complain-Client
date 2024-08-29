@@ -14,7 +14,7 @@ const HotDail = () => {
       {' '}
       <div className="flex justify-center pt-20">
         <img
-          className="rounded-xl shadow-inner h-[600px] w-[500px]"
+          className="rounded-xl shadow-inner h-[450px] w-[400px]"
           src={hotImage}
           alt=""
         />

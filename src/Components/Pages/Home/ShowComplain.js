@@ -36,7 +36,7 @@ const ShowComplain = ({ complain }) => {
       <div ref={cardRef}>
         <div
           style={{ width: '' }}
-          className="card bg-base-100 w-96 text-black shadow-2xl hover:bg-red-100  hover:shadow-inner"
+          className="card bg-base-100  text-black shadow-2xl hover:bg-red-100  hover:shadow-inner"
         >
           <div className="flex justify-end">
             {/* <button style={{ position: 'absolute' }} onClick={toPdf}>
@@ -55,43 +55,46 @@ const ShowComplain = ({ complain }) => {
               className="w-full "
               src={complain?.image}
               alt=""
-              style={{ height: '350px' }}
+              style={{ height: '250px' }}
             />
           </figure>
-          <div className="card-body">
+          <div className="card-body p-4">
             <h2 className="card-title  text-lg">
               {' '}
-              <span className="font-bold"> Division :</span>
+              <span className="font-semibold"> Division :</span>
               {complain?.division}
             </h2>
             <h2 className="card-title text-lg font-medium ">
               {' '}
-              <span className="font-bold"> District : </span>
+              <span className="font-semibold"> District : </span>
               {complain?.district}
             </h2>
             <h2 className="card-title  text-sm font-medium">
               {' '}
-              <span className="font-bold text-lg"> Ministry : </span>
+              <span className="font-semibold text-lg"> Ministry : </span>
               {complain?.ministry}
             </h2>
             <h2 className="card-title  text-sm font-medium">
               {' '}
-              <span className="font-bold text-lg"> Current Location : </span>
+              <span className="font-semibold text-lg">
+                {' '}
+                Current Location :{' '}
+              </span>
               {complain?.location}
             </h2>
             <h2 className="card-title  text-sm font-medium">
               {' '}
-              <span className="font-bold text-lg"> Date : </span>
+              <span className="font-semibold text-lg"> Date : </span>
               {complain?.date}
             </h2>
             <h2 className="card-title  text-sm font-medium">
               {' '}
-              <span className="font-bold text-lg"> Complain : </span>
+              <span className="font-semibold text-lg"> Complain : </span>
               {complain?.complain}
             </h2>
             <h2 className="card-title  text-sm font-medium">
               {' '}
-              <span className="font-bold text-lg"> Complain by : </span>
+              <span className="font-semibold text-lg"> Complain by : </span>
               {complain?.profile?.name}
             </h2>
           </div>
@@ -104,14 +107,14 @@ const ShowComplain = ({ complain }) => {
                     {review ? (
                       <button
                         onClick={() => setReview(false)}
-                        className="btn font-bold btn-primary text-white"
+                        className="btn font-semibold btn-primary text-white"
                       >
                         minimize Review{' '}
                       </button>
                     ) : (
                       <button
                         onClick={() => setReview(true)}
-                        className="btn font-bold btn-accent text-white"
+                        className="btn font-semibold btn-accent text-white"
                       >
                         Add Review{' '}
                       </button>
@@ -123,11 +126,11 @@ const ShowComplain = ({ complain }) => {
               </div>
               {arrow ? (
                 <button onClick={() => setArrow(false)}>
-                  <BiUpArrowCircle className="text-4xl font-bold mr-4 text-primary" />
+                  <BiUpArrowCircle className="text-4xl font-semibold mr-4 text-primary" />
                 </button>
               ) : (
                 <button onClick={() => setArrow(true)}>
-                  <BiDownArrowCircle className="text-4xl font-bold mr-4 text-primary" />
+                  <BiDownArrowCircle className="text-4xl font-semibold mr-4 text-primary" />
                 </button>
               )}
             </div>

@@ -1,7 +1,8 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, Outlet } from "react-router-dom";
-import auth from "../../../firebase.init";
+import { FaHome } from 'react-icons/fa';
+import { Link, Outlet } from 'react-router-dom';
+import auth from '../../../firebase.init';
 
 const Home = () => {
   const user = useAuthState(auth);
@@ -28,16 +29,16 @@ const Home = () => {
               }}
               className="menu p-4 overflow-y-auto w-60    text-white"
             >
-              <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-2xl text-xl mt-5">
+              <li className="hover:bg-green-800 rounded-lg hover:text-white  text-xl mt-5">
                 <Link to="/" className="font-bold ">
-                  Profile
+                  <FaHome className="text-3xl" />
                 </Link>
               </li>
 
               {email === 'abc@def.com' ? (
                 <></>
               ) : (
-                <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-2xl text-xl mt-3">
+                <li className="hover:bg-green-800 rounded-lg hover:text-white  text-xl mt-3">
                   <Link to="/complain" className="font-bold ">
                     Complain
                   </Link>
@@ -45,14 +46,19 @@ const Home = () => {
               )}
 
               {email === 'abc@def.com' && (
-                <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-2xl text-xl mt-3">
+                <li className="hover:bg-green-800 rounded-lg hover:text-white  text-xl mt-3">
                   <Link to="/showComplains" className="font-bold ">
                     Show Complain
                   </Link>
                 </li>
               )}
+              <li className="hover:bg-green-800 rounded-lg hover:text-white  text-xl mt-5">
+                <Link to="/profile" className="font-bold ">
+                  Profile
+                </Link>
+              </li>
 
-              <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-2xl text-xl mt-3">
+              <li className="hover:bg-green-800 rounded-lg hover:text-white  text-xl mt-3">
                 <Link to="/myProfile" className="font-bold ">
                   Edit Profile
                 </Link>
@@ -60,7 +66,7 @@ const Home = () => {
               {email === 'abc@def.com' ? (
                 <></>
               ) : (
-                <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-2xl text-xl mt-3">
+                <li className="hover:bg-green-800 rounded-lg hover:text-white  text-xl mt-3">
                   <Link to="/myComplain" className="font-bold ">
                     My Complain
                   </Link>

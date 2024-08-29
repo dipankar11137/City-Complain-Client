@@ -55,6 +55,7 @@ const CreateAccount = () => {
     const image = data.image[0];
     await createUserWithEmailAndPassword(data.email, data.password);
     await signInWithEmailAndPassword(data.email, data.password);
+    toast.success('hello');
     updateProfile({ displayName: data.name });
     const formData = new FormData();
     formData.append('image', image);
@@ -304,11 +305,11 @@ const CreateAccount = () => {
                       value: 6,
                       message: 'Password must be 6 characters long',
                     },
-                    pattern: {
-                      value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
-                      message:
-                        'Password must have uppercase, number and special characters',
-                    },
+                    // pattern: {
+                    //   value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
+                    //   message:
+                    //     'Password must have uppercase, number and special characters',
+                    // },
                   })}
                   className="input input-bordered w-full "
                 />
