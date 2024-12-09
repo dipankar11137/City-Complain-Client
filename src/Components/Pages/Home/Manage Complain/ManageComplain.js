@@ -101,8 +101,13 @@ const ManageComplain = ({
           </button>
         </div>
       </td>
+
       <td>
-        <h1>None</h1>
+        {complain.done ? (
+          <h1>Complete</h1>
+        ) : (
+          <> {complain.processing ? <h1>Processing</h1> : <h1>None</h1>}</>
+        )}
       </td>
       <td>
         {complain.done ? (
