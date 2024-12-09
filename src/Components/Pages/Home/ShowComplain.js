@@ -97,6 +97,17 @@ const ShowComplain = ({ complain }) => {
               <span className="font-semibold text-lg"> Complain by : </span>
               {complain?.profile?.name}
             </h2>
+            <h2 className="card-title  text-sm font-medium">
+              <span className="font-semibold text-lg"> Complain Status : </span>
+              {complain.done ? (
+                <h1>Solved</h1>
+              ) : (
+                <>
+                  {' '}
+                  {complain.processing ? <h1>Processing</h1> : <h1>None</h1>}
+                </>
+              )}
+            </h2>
           </div>
           <div>
             <div className="mb-2 p-2 flex justify-between">

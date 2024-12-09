@@ -10,9 +10,9 @@ const MyComplain = () => {
 
   useEffect(() => {
     fetch(`http://localhost:5000/complains/${email}`)
-      .then((res) => res.json())
-      .then((data) => setComplains(data));
-  }, []);
+      .then(res => res.json())
+      .then(data => setComplains(data));
+  }, [email]);
   return (
     <div className="px-10 mb-20">
       <h1 className="text-3xl mt-3 text-center font-bold">My Complain </h1>

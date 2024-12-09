@@ -104,14 +104,14 @@ const ManageComplain = ({
 
       <td>
         {complain.done ? (
-          <h1>Complete</h1>
+          <h1>Solved</h1>
         ) : (
           <> {complain.processing ? <h1>Processing</h1> : <h1>None</h1>}</>
         )}
       </td>
       <td>
         {complain.done ? (
-          <h1>Complete</h1>
+          <h1>Solved</h1>
         ) : (
           <>
             {' '}
