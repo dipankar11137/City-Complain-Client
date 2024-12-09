@@ -22,12 +22,12 @@ const Home = () => {
           <div className="drawer-side ">
             <label for="dashboard-sidebar" className="drawer-overlay "></label>
             <ul
-              style={{
-                background: `url(https://i.pinimg.com/originals/0e/c4/94/0ec4941e46810561d9eb1ce89d975228.jpg)`,
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat',
-              }}
-              className="menu p-4 overflow-y-auto w-60    text-white"
+              // style={{
+              //   background: `url(https://i.pinimg.com/originals/0e/c4/94/0ec4941e46810561d9eb1ce89d975228.jpg)`,
+              //   backgroundSize: 'cover',
+              //   backgroundRepeat: 'no-repeat',
+              // }}
+              className="menu p-4 overflow-y-auto w-60  bg-slate-300  text-indigo-900"
             >
               <li className="hover:bg-green-800 rounded-lg hover:text-white  text-xl mt-5">
                 <Link to="/" className="font-bold ">
@@ -35,7 +35,7 @@ const Home = () => {
                 </Link>
               </li>
 
-              {email === 'abc@def.com' ? (
+              {email === 'mariammim42@gmail.com' ? (
                 <></>
               ) : (
                 <li className="hover:bg-green-800 rounded-lg hover:text-white  text-xl mt-3">
@@ -45,7 +45,7 @@ const Home = () => {
                 </li>
               )}
 
-              {email === 'abc@def.com' && (
+              {email === 'mariammim42@gmail.com' && (
                 <li className="hover:bg-green-800 rounded-lg hover:text-white  text-xl mt-3">
                   <Link to="/showComplains" className="font-bold ">
                     Show Complain
@@ -63,7 +63,7 @@ const Home = () => {
                   Edit Profile
                 </Link>
               </li>
-              {email === 'abc@def.com' ? (
+              {email === 'mariammim42@gmail.com' ? (
                 <></>
               ) : (
                 <li className="hover:bg-green-800 rounded-lg hover:text-white  text-xl mt-3">
@@ -73,7 +73,7 @@ const Home = () => {
                 </li>
               )}
 
-              {email === 'abc@def.com' ? (
+              {email === 'mariammim42@gmail.com' ? (
                 <li className="hover:bg-green-800 rounded-lg hover:text-white hover:text-xl text-xl mt-3">
                   <Link to="/manageComplains" className="font-bold ">
                     Manage Complain

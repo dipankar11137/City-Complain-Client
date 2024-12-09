@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import '../../../CSS/PicStyle.css';
 
-const ManageComplain = ({ complain, handleDelete }) => {
+const ManageComplain = ({
+  complain,
+  handleDelete,
+  handleProcessing,
+  handleDone,
+}) => {
   const [edit, setEdit] = useState(false);
   return (
     <tr>
@@ -87,21 +92,51 @@ const ManageComplain = ({ complain, handleDelete }) => {
 
       <td>{complain?.location}</td>
       <td>{complain?.date}</td>
-      <td>{complain?.complain}</td>
 
       <td>
         <div>
-          <button onClick={() => setEdit(true)} className="mt-5">
+          <button onClick={() => setEdit(true)} className="">
             {' '}
             {complain?.profile?.name}
           </button>
         </div>
       </td>
       <td>
-        <button onClick={() => handleDelete(complain?._id)} className="btn">
+        <h1>None</h1>
+      </td>
+      <td>
+        {complain.done ? (
+          <h1>Complete</h1>
+        ) : (
+          <>
+            {' '}
+            {complain.processing ? (
+              <button
+                onClick={() => handleDone(complain?._id)}
+                className="btn btn-xs btn-secondary"
+              >
+                Done
+              </button>
+            ) : (
+              <button
+                onClick={() => handleProcessing(complain?._id)}
+                className="btn btn-xs btn-accent"
+              >
+                Processing
+              </button>
+            )}
+          </>
+        )}
+      </td>
+      <td>
+        <button
+          onClick={() => handleDelete(complain?._id)}
+          className="btn btn-xs"
+        >
           Delete
         </button>
       </td>
+      <td>{complain?.complain}</td>
     </tr>
   );
 };
